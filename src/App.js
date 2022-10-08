@@ -55,7 +55,7 @@ export default function App() {
 					<Sales />
 				</div>
 
-				<div className="col-span-3 sm:col-span-2 lg:col-span-1 bg-green-200 h-80">
+				<div className="col-span-3 sm:col-span-2 lg:col-span-1 bg-green-200 h-auto">
 					<Tasks />
 				</div>
 				<div className="col-span-3 sm:col-span-1 lg:col-span-1 bg-red-200">

@@ -7,11 +7,11 @@ export default function Sales() {
 						<span className="px-1.5 w-2 h-2 rounded-full bg-orange-500  text-orange-500 mr-2">.</span>Offline
 					</div>
 					<div className="text-xs ml-4 font-medium text-gray-700">
-						<span className="px-1.5 w-2 h-2 rounded-full bg-primary-dark  text-primary-dark mr-2">.</span>Online
+						<span className="px-1.5 w-2 h-2 rounded-full bg-primary-light  text-primary-light mr-2">.</span>Online
 					</div>
 				</div>
 
-				<button className="p-3 w-32 text-sm font-medium text-gray-700 border border-gray-500 tracking-tight rounded-md">
+				<button className="p-2 w-24 text-xs font-medium text-gray-700 border border-gray-500 tracking-tight rounded-md">
 					View Details
 				</button>
 			</div>

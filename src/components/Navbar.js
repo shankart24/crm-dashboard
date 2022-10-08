@@ -9,7 +9,7 @@ export default function Navbar() {
 			<div className="max-w-7xl mx-auto  ">
 				<div className="relative flex items-center justify-between h-20 ">
 					<div className="flex items-center justify-center sm:items-stretch sm:justify-start ">
-						<h1 className="text-xl tracking-tighter font-semibold text-primary-dark">Dashboard</h1>
+						<h1 className="text-xl tracking-tighter font-semibold text-primary-light">Dashboard</h1>
 					</div>
 					<div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 						<svg
@@ -146,7 +146,7 @@ export default function Navbar() {
 								return (
 									<div
 										key={item.name}
-										className="flex items-center text-sm tracking-tight font-medium text-gray-400 hover:text-primary-dark hover:cursor-pointer"
+										className="flex items-center text-sm tracking-tight font-medium text-gray-400 hover:text-primary-light hover:cursor-pointer"
 									>
 										{item.img} {item.name}
 									</div>

@@ -14,7 +14,7 @@ export default function Followers() {
 				</div>
 				<img
 					src="https://bunifuframework.com/wp-content/uploads/2020/12/ColumnChart_Live.gif"
-					className=" w-full object-cover rounded-b-md"
+					className="h-64 w-full object-cover rounded-b-md"
 				/>
 			</div>
 		</div>

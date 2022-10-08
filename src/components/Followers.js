@@ -1,3 +1,6 @@
+// import { Chart } from "react-google-charts";
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
+
 export default function Followers() {
 	return (
 		<div className="p-2">
@@ -10,13 +13,90 @@ export default function Followers() {
 						name="animals"
 					>
 						<option value="August 2022">August 2022</option>
+						<option value="September 2022">September 2022</option>
+						<option value="October 2022">October 2022</option>
 					</select>
 				</div>
-				<img
-					src="https://bunifuframework.com/wp-content/uploads/2020/12/ColumnChart_Live.gif"
-					className="h-64 w-full object-cover rounded-b-md"
-				/>
+
+				<div className="p-2 h-72 text-xs">
+					<ChartSection />
+				</div>
 			</div>
 		</div>
 	);
 }
+
+const ChartSection = () => {
+	const data = [
+		{
+			name: "2015",
+			retained: 5200,
+			followers: 2400,
+			amt: 2400,
+		},
+		{
+			name: "2016",
+			retained: 400,
+			followers: 5400,
+			amt: 2400,
+		},
+		{
+			name: "2017",
+			retained: 800,
+			followers: 1398,
+			amt: 2210,
+		},
+		{
+			name: "2018",
+			retained: 600,
+			followers: 9800,
+			amt: 2290,
+		},
+		{
+			name: "2019",
+			retained: 1780,
+			followers: 3908,
+			amt: 2000,
+		},
+		{
+			name: "2020",
+			retained: 1300,
+			followers: 1398,
+			amt: 2210,
+		},
+		{
+			name: "2021",
+			retained: 1900,
+			followers: 9800,
+			amt: 2290,
+		},
+		{
+			name: "2022",
+			retained: 780,
+			followers: 3908,
+			amt: 100,
+		},
+	];
+
+	return (
+		<ResponsiveContainer width="100%" height="100%">
+			<BarChart
+				data={data}
+				margin={{
+					top: 20,
+					right: 30,
+					left: 20,
+					bottom: 5,
+				}}
+			>
+				{/* <CartesianGrid strokeDasharray="3 3" /> */}
+				<XAxis dataKey="name" />
+				{/* <YAxis /> */}
+				<Tooltip />
+				<Legend />
+				<Bar dataKey="followers" stackId="a" fill="#1A6BD9" />
+				<Bar dataKey="retained" stackId="a" fill="#d10070" />
+			</BarChart>
+		</ResponsiveContainer>
+	);
+};

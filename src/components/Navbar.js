@@ -9,7 +9,7 @@ export default function Navbar() {
 			<div className="max-w-7xl mx-auto  ">
 				<div className="relative flex items-center justify-between h-20 ">
 					<div className="flex items-center justify-center sm:items-stretch sm:justify-start ">
-						<h1 className="text-xl tracking-tighter font-semibold text-primary-light">Dashboard</h1>
+						<h1 className="text-xl tracking-tighter font-semibold text-primary-light">CRM Dash</h1>
 					</div>
 					<div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 						<svg
@@ -121,11 +121,13 @@ export default function Navbar() {
 											</button>
 										</div>
 										<div className=" grid grid-cols-1 sm:grid-cols-2 gap-y-6 w-full py-2">
-											{navItems?.map((item) => {
+											{navItems?.map((item, index) => {
 												return (
 													<div
 														key={item.name}
-														className="flex items-center text-sm tracking-tight font-medium text-gray-600"
+														className={`${
+															index == 0 ? "text-primary-light" : "text-gray-600"
+														} flex items-center text-sm tracking-tight font-medium `}
 													>
 														{item.img} {item.name}
 													</div>
@@ -142,11 +144,13 @@ export default function Navbar() {
 				<div class=" px-4 py-5 border-t border-gray-200 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
 					<div class="relative flex items-center justify-between">
 						<div className="lg:flex hidden   items-center justify-between w-full py-2">
-							{navItems?.map((item) => {
+							{navItems?.map((item, index) => {
 								return (
 									<div
 										key={item.name}
-										className="flex items-center text-sm tracking-tight font-medium text-gray-400 hover:text-primary-light hover:cursor-pointer"
+										className={`${
+											index == 0 ? "text-primary-light" : "text-gray-600"
+										} flex items-center cursor-pointer text-sm tracking-tight font-medium hover:text-primary-light`}
 									>
 										{item.img} {item.name}
 									</div>

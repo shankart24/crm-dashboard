@@ -41,15 +41,15 @@ export default function Tasks() {
 							New Task
 						</button>
 					</div>
-					<div className="mt-4 h-52 overflow-y-scroll">
-						<div class="container flex flex-col mx-auto w-full items-center justify-center">
-							{!_.isEmpty(allTodos) &&
+					<div className={`${Object.keys(allTodos).length >= 3 ? "h-64 overflow-y-scroll" : "h-64"} mt-4 `}>
+						<div class="container flex flex-col mx-auto w-full items-center justify-center py-2">
+							{!_.isEmpty(allTodos) ? (
 								Object.keys(allTodos)?.map((key) => {
 									const { id, user, content, date } = allTodos?.[key];
 									return (
 										<div
 											key={id}
-											class="border border-gray-200 rounded flex flex-col p-4 shadow-lg w-full sm:w-4/5 my-2 "
+											class="border border-gray-200 bg-white rounded flex flex-col p-4 shadow-lg w-full sm:w-4/5 my-2 "
 										>
 											<div class="text-gray-600 text-xs mb-2">{user}</div>
 											<div class="font-medium text-sm">{content}</div>
@@ -88,7 +88,10 @@ export default function Tasks() {
 											</div>
 										</div>
 									);
-								})}
+								})
+							) : (
+								<p className="text-xs text-gray-500">No tasks to display!</p>
+							)}
 						</div>
 					</div>
 				</div>
@@ -213,7 +216,7 @@ const TodoForm = ({ state, resetState }) => {
 						onClick={handleSubmit}
 						className="w-full text-sm inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded  bg-primary-light focus:shadow-outline focus:outline-none"
 					>
-						{state.type === "add" ? "Add todo" : "Update todo"}
+						{state.type === "add" ? "Add task" : "Update task"}
 					</button>
 				</div>
 			</form>

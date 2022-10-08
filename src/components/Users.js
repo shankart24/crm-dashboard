@@ -10,6 +10,8 @@ export default function Followers() {
 						name="animals"
 					>
 						<option value="August 2022">August 2022</option>
+						<option value="September 2022">September 2022</option>
+						<option value="October 2022">October 2022</option>
 					</select>
 				</div>
 				<div>

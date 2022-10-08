@@ -1,3 +1,5 @@
+import { Chart } from "react-google-charts";
+
 export default function Sales() {
 	return (
 		<div className="p-2">
@@ -17,11 +19,27 @@ export default function Sales() {
 			</div>
 			<div className="shadow-lg rounded-md mt-6 bg-white">
 				<h2 className="border-b border-gray-300 text-sm font-medium text-gray-700 px-2 py-4">Total Sales</h2>
-				<img
-					src="https://designmodo.com/wp-content/uploads/2015/06/graph.jpg"
-					className="h-48 w-full object-cover rounded-b-md"
-				/>
+
+				<ChartSection />
 			</div>
 		</div>
 	);
 }
+
+const ChartSection = () => {
+	const data = [
+		["Year", "Sales", "Expenses"],
+		["2019", 800, 500],
+		["2020", 1170, 460],
+		["2021", 660, 1440],
+		["2022", 1030, 540],
+	];
+
+	const options = {
+		colors: ["#1A6BD9", "#d10070"],
+		title: "Comparision",
+		curveType: "function",
+		legend: { position: "bottom" },
+	};
+	return <Chart chartType="LineChart" width="100%" height="280px" data={data} options={options} />;
+};

@@ -1,18 +1,24 @@
+import { useState } from "react";
+import { Select } from "../elements";
+
 export default function Users() {
+	const [month, setMonth] = useState("aug");
+
 	return (
 		<div className="p-2">
 			<h4 className="text-sm font-medium text-gray-500 tracking-tight">User Visits</h4>
 			<div className="shadow-lg border border-gray-50 rounded-md mt-6 bg-white">
 				<div className="flex items-center justify-between py-2 px-2 border-b border-gray-300">
 					<h2 className=" text-sm font-medium text-gray-700 px-2 py-3">View Goals</h2>
-					<select
-						class="block w-32 text-xs text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none "
-						name="animals"
-					>
-						<option value="August 2022">August 2022</option>
-						<option value="September 2022">September 2022</option>
-						<option value="October 2022">October 2022</option>
-					</select>
+					<Select
+						changeHandler={(e) => {
+							setMonth(e.target.value);
+						}}
+						options={[
+							{ name: "Aug 2022", value: "aug" },
+							{ name: "Sep 2022", value: "sep" },
+						]}
+					/>
 				</div>
 				<div>
 					<div className="grid grid-cols-3 gap-4 py-4">
@@ -23,7 +29,7 @@ export default function Users() {
 								viewBox="0 0 24 24"
 								strokeWidth={1.5}
 								stroke="currentColor"
-								className="w-8 h-8 text-gray-500 border border-gray-200 rounded-full p-2"
+								className="w-8 h-8 text-gray-500 cursor-pointer hover:text-primary-light hover:border-primary-light  border border-gray-200 rounded-full p-2"
 							>
 								<path
 									strokeLinecap="round"
@@ -36,11 +42,16 @@ export default function Users() {
 							<p class="text-sm font-medium tracking-tight text-center">Total views</p>
 
 							<div class="flex flex-col justify-start">
-								<p class="text-primary-light text-4xl tracking-tight text-center  font-bold my-4">2400</p>
+								<p class="text-primary-light text-4xl tracking-tight text-center  font-bold my-4">
+									{data[month].totalViews}
+								</p>
 								<div class="relative w-28 h-2 bg-blue-200 rounded">
 									<div class="absolute top-0 h-2  left-0 rounded bg-primary-light w-2/3"></div>
 								</div>
-								<p className="text-xs text-center text-primary-light mt-2 font-medium">5.5% increase</p>
+								<p className="text-xs text-center text-primary-light mt-2 font-medium">
+									{" "}
+									{data[month].increase}% increase
+								</p>
 							</div>
 						</div>
 						<div className="flex justify-center items-center">
@@ -50,7 +61,7 @@ export default function Users() {
 								viewBox="0 0 24 24"
 								strokeWidth={1.5}
 								stroke="currentColor"
-								className="w-8 h-8 text-gray-500 border border-gray-200 rounded-full p-2"
+								className="w-8 h-8 text-gray-500 hover:text-primary-light hover:border-primary-light cursor-pointer border border-gray-200 rounded-full p-2"
 							>
 								<path
 									strokeLinecap="round"
@@ -61,25 +72,12 @@ export default function Users() {
 						</div>
 					</div>
 
-					<div className="grid grid-cols-3">
-						{[
-							{
-								name: "Goal status",
-								value: "4800 views",
-							},
-							{
-								name: "Avg. visiting time",
-								value: "2.5 sec",
-							},
-							{
-								name: "Social Share",
-								value: "3404",
-							},
-						]?.map((item) => {
+					<div className="grid grid-cols-3 mt-1">
+						{data[month].subInfo?.map((item) => {
 							return (
 								<div
 									key={item.name}
-									className="px-2 py-4 tracking-tight text-center border rounded-b-md border-gray-100"
+									className="px-2 py-6 tracking-tight text-center border rounded-b-md border-gray-100"
 								>
 									<p className="text-gray-700 font-medium mb-2 text-sm">{item.value}</p>
 									<p className="text-gray-500 text-xs">{item.name}</p>
@@ -92,3 +90,42 @@ export default function Users() {
 		</div>
 	);
 }
+
+const data = {
+	aug: {
+		totalViews: 2400,
+		increase: 5.5,
+		subInfo: [
+			{
+				name: "Goal status",
+				value: "4800 views",
+			},
+			{
+				name: "Avg. visiting time",
+				value: "2.5 sec",
+			},
+			{
+				name: "Social Share",
+				value: "3404",
+			},
+		],
+	},
+	sep: {
+		totalViews: 5200,
+		increase: 25.6,
+		subInfo: [
+			{
+				name: "Goal status",
+				value: "6400 views",
+			},
+			{
+				name: "Avg. visiting time",
+				value: "14.5 sec",
+			},
+			{
+				name: "Social Share",
+				value: "5900",
+			},
+		],
+	},
+};

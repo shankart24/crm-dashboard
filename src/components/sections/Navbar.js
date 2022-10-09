@@ -7,7 +7,7 @@ export default function Navbar() {
 	return (
 		<nav className="bg-gray-50">
 			<div className="max-w-7xl mx-auto  ">
-				<div className="relative flex items-center justify-between h-20 ">
+				<div className="relative flex items-center justify-between h-20 px-2 xl:px-0">
 					<div className="flex items-center justify-center sm:items-stretch sm:justify-start ">
 						<h1 className="text-xl tracking-tighter font-semibold text-primary-light">CRM Dash</h1>
 					</div>
@@ -45,7 +45,7 @@ export default function Navbar() {
 										src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
 										alt=""
 									/>
-									<h2 className="text-md tracking-tight font-medium ml-2 text-gray-700">Jason Bourne</h2>
+									<h2 className="text-md tracking-tight font-medium ml-2 text-gray-700">Andy Cheo</h2>
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										className={`${viewDropdown ? "rotate-180" : ""} transition-transform h-5 w-5`}
@@ -141,7 +141,7 @@ export default function Navbar() {
 					</div>
 				</div>
 
-				<div class=" px-4 py-5 border-t border-gray-200 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+				<div class=" px-4 lg:py-5 lg:border-t  lg:border-gray-200 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
 					<div class="relative flex items-center justify-between">
 						<div className="lg:flex hidden   items-center justify-between w-full py-2">
 							{navItems?.map((item, index) => {

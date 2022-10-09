@@ -1,4 +1,4 @@
-import { Chart } from "react-google-charts";
+import { LineChart } from "../Charts";
 
 export default function Sales() {
 	return (
@@ -20,26 +20,23 @@ export default function Sales() {
 			<div className="shadow-lg border border-gray-100 rounded-md mt-6 bg-white">
 				<h2 className="border-b border-gray-300 text-sm font-medium text-gray-700 px-2 py-4">Total Sales</h2>
 
-				<ChartSection />
+				<LineChart {...{ data, options }} />
 			</div>
 		</div>
 	);
 }
 
-const ChartSection = () => {
-	const data = [
-		["Year", "Sales", "Expenses"],
-		["2019", 800, 500],
-		["2020", 1170, 460],
-		["2021", 660, 1440],
-		["2022", 1030, 540],
-	];
+const data = [
+	["Year", "Sales", "Expenses"],
+	["2019", 800, 500],
+	["2020", 1170, 460],
+	["2021", 660, 1440],
+	["2022", 1030, 540],
+];
 
-	const options = {
-		colors: ["#1A6BD9", "#d10070"],
-		title: "Comparision",
-		curveType: "function",
-		legend: { position: "bottom" },
-	};
-	return <Chart chartType="LineChart" width="100%" height="280px" data={data} options={options} />;
+const options = {
+	colors: ["#1A6BD9", "#d10070"],
+	title: "Comparision",
+	curveType: "function",
+	legend: { position: "bottom" },
 };

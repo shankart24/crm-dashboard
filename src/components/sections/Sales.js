@@ -18,7 +18,7 @@ export default function Sales() {
 				</button>
 			</div>
 			<div className="shadow-lg border border-gray-100 rounded-md mt-6 bg-white">
-				<h2 className="border-b border-gray-300 text-sm font-medium text-gray-700 px-2 py-4">Total Sales</h2>
+				<h2 className="border-b border-gray-300 text-sm font-medium text-gray-700 px-4 py-4">Total Sales</h2>
 
 				<LineChart {...{ data, options }} />
 			</div>

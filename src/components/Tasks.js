@@ -31,17 +31,17 @@ export default function Tasks() {
 		<>
 			<div className="p-2">
 				<h4 className="text-sm font-medium text-gray-500 tracking-tight">Current Tasks</h4>
-				<div className="shadow-lg rounded-md mt-6 bg-white">
+				<div className="shadow-lg border border-gray-50 rounded-md mt-6 bg-white">
 					<div className="flex items-center justify-between py-2 px-2 border-b border-gray-300">
 						<h2 className=" text-sm font-medium text-gray-700 px-2 py-3">Task List</h2>
 						<button
-							onClick={() => setState((state) => ({ ...state, showForm: !state.showForm }))}
+							onClick={() => setState((state) => ({ ...state, showForm: !state.showForm, type: "add" }))}
 							className="p-2 w-24 text-xs font-medium  bg-primary-light text-white tracking-tight rounded-md"
 						>
 							New Task
 						</button>
 					</div>
-					<div className={`${Object.keys(allTodos).length >= 3 ? "h-64 overflow-y-scroll" : "h-64"} mt-4 `}>
+					<div className={`${Object.keys(allTodos).length >= 2 ? "h-64 overflow-y-scroll" : "h-64"} mt-4 `}>
 						<div class="container flex flex-col mx-auto w-full items-center justify-center py-2">
 							{!_.isEmpty(allTodos) ? (
 								Object.keys(allTodos)?.map((key) => {
@@ -49,18 +49,18 @@ export default function Tasks() {
 									return (
 										<div
 											key={id}
-											class="border border-gray-200 bg-white rounded flex flex-col p-4 shadow-lg w-full sm:w-4/5 my-2 "
+											class="border border-gray-200 bg-primary-light rounded flex flex-col p-4 shadow-lg w-full sm:w-5/6 my-2 "
 										>
-											<div class="text-gray-600 text-xs mb-2">{user}</div>
-											<div class="font-medium text-sm">{content}</div>
+											<div class="text-gray-200 text-xs mb-2">{user}</div>
+											<div class="font-medium text-white text-sm">{content}</div>
 											<div class="mt-4 flex justify-between items-center">
-												<div class="text-gray-600 mt-1 tracking-tight  text-xs">{date}</div>
+												<div class="text-gray-200 mt-1 tracking-tight  text-xs">{date}</div>
 
 												<div className="flex items-center gap-x-4">
 													<svg
 														onClick={() => handleUpdate(allTodos?.[key])}
 														xmlns="http://www.w3.org/2000/svg"
-														className="h-5 w-5 text-primary-light cursor-pointer"
+														className="h-5 w-5 text-gray-200 cursor-pointer"
 														viewBox="0 0 20 20"
 														fill="currentColor"
 													>
@@ -74,7 +74,7 @@ export default function Tasks() {
 													<svg
 														onClick={() => handleDelete(id)}
 														xmlns="http://www.w3.org/2000/svg"
-														className="h-5 w-5 text-red-700 cursor-pointer"
+														className="h-5 w-5 text-red-300 cursor-pointer"
 														viewBox="0 0 20 20"
 														fill="currentColor"
 													>
@@ -138,12 +138,13 @@ export default function Tasks() {
 }
 
 const TodoForm = ({ state, resetState }) => {
-	const [todo, setTodo] = useState({
+	const defaultTodo = {
 		id: "",
 		user: "",
 		content: "",
 		date: "",
-	});
+	};
+	const [todo, setTodo] = useState(defaultTodo);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -156,6 +157,12 @@ const TodoForm = ({ state, resetState }) => {
 		const { name, value } = e.target;
 		setTodo((todo) => ({ ...todo, [name]: value }));
 	};
+
+	useEffect(() => {
+		if (state.type === "add") {
+			setTodo(defaultTodo);
+		}
+	}, [state.type]);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();

@@ -1,8 +1,8 @@
-export default function Followers() {
+export default function Users() {
 	return (
 		<div className="p-2">
 			<h4 className="text-sm font-medium text-gray-500 tracking-tight">User Visits</h4>
-			<div className="shadow-lg rounded-md mt-6 bg-white">
+			<div className="shadow-lg border border-gray-50 rounded-md mt-6 bg-white">
 				<div className="flex items-center justify-between py-2 px-2 border-b border-gray-300">
 					<h2 className=" text-sm font-medium text-gray-700 px-2 py-3">View Goals</h2>
 					<select

@@ -2,7 +2,7 @@ import { Chart } from "react-google-charts";
 
 export default function Sales() {
 	return (
-		<div className="p-2">
+		<div className="p-2 ">
 			<div className="flex justify-between items-center">
 				<div className="flex items-center">
 					<div className="text-xs font-medium text-gray-700">
@@ -17,7 +17,7 @@ export default function Sales() {
 					View Details
 				</button>
 			</div>
-			<div className="shadow-lg rounded-md mt-6 bg-white">
+			<div className="shadow-lg border border-gray-100 rounded-md mt-6 bg-white">
 				<h2 className="border-b border-gray-300 text-sm font-medium text-gray-700 px-2 py-4">Total Sales</h2>
 
 				<ChartSection />

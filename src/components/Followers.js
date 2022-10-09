@@ -1,11 +1,10 @@
-// import { Chart } from "react-google-charts";
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 
 export default function Followers() {
 	return (
 		<div className="p-2">
 			<h4 className="text-sm font-medium text-gray-500 tracking-tight">Followers Stats</h4>
-			<div className="shadow-lg rounded-md mt-6 bg-white">
+			<div className="shadow-lg border border-gray-100 rounded-md mt-6 bg-white">
 				<div className="flex items-center justify-between py-2 px-2 border-b border-gray-300">
 					<h2 className=" text-sm font-medium text-gray-700 px-2 py-3">Followers</h2>
 					<select
@@ -18,7 +17,7 @@ export default function Followers() {
 					</select>
 				</div>
 
-				<div className="p-2 h-72 text-xs">
+				<div className="p-1 h-72 text-xs">
 					<ChartSection />
 				</div>
 			</div>
@@ -95,7 +94,7 @@ const ChartSection = () => {
 				<Tooltip />
 				<Legend />
 				<Bar dataKey="followers" stackId="a" fill="#1A6BD9" />
-				<Bar dataKey="retained" stackId="a" fill="#d10070" />
+				<Bar dataKey="retained" stackId="a" fill="#0144a0" />
 			</BarChart>
 		</ResponsiveContainer>
 	);

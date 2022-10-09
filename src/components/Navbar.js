@@ -102,7 +102,7 @@ export default function Navbar() {
 								{/* <p className="text-sm tracking-tight text-gray-600 ml-2">View Tabs</p> */}
 							</button>
 							{isMenuOpen && (
-								<div class="absolute top-0 left-0 w-full">
+								<div class="absolute top-0 left-0 z-50 w-full">
 									<div class="p-5 bg-white border rounded shadow-sm">
 										<div class="flex items-center justify-between mb-4">
 											<div></div>
